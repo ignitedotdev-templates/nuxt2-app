@@ -1,11 +1,80 @@
 <template>
-  <Tutorial/>
+  <main>
+    <div class="">
+      <NuxtLogo />
+    </div>
+    <div class="container">
+      <div className="inner-container">
+        <h2 class="header">
+          You’ve just ignited a new
+          <span class="library">Nuxt 2</span> static site!
+        </h2>
+        <span class="pathname">
+          {{ currentPath }}
+        </span>
+      </div>
+      <p class="footer">Made in Nigeria with 💖</p>
+    </div>
+  </main>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script setup lang="ts">
+// import Vue from "vue";
+import { ref, onMounted } from "vue";
+import NuxtLogo from "~/components/NuxtLogo.vue";
 
-export default Vue.extend({
-  name: 'IndexPage'
-})
+// export default Vue.extend({
+//   name: "IndexPage",
+// });
+
+const currentPath = ref("");
+
+onMounted(() => {
+  currentPath.value = window.location.href;
+});
 </script>
+
+<style scoped>
+main {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  align-items: center;
+  justify-content: center;
+}
+.logo {
+  width: 200px;
+  height: 200px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 30px;
+}
+.inner-container {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.header {
+  font-size: 36px;
+  font-weight: 400;
+  color: #344054;
+}
+.pathname {
+  color: #004eeb;
+  font-size: 20px;
+}
+.footer {
+  font-size: 20px;
+  font-weight: 500;
+  color: #344054;
+}
+.library {
+  color: #00dc82;
+  font-weight: 600;
+}
+</style>
