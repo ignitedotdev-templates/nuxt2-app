@@ -1,5 +1,20 @@
 # nuxt2-app
 
+
+## Deploy Site Config
+
+```bash
+# root directory
+/
+
+# build command
+npm install && npm run generate
+
+# build directory
+dist
+```
+
+
 ## Build Setup
 
 ```bash
